@@ -18,6 +18,10 @@ module Refinery
       config.after_initialize do
         Refinery.register_engine(Refinery::Wymeditor)
       end
+
+      config.to_prepare do
+        Refinery::Core.register_stylesheet 'wymeditor'
+      end
     end
   end
 end

@@ -21,6 +21,9 @@ module Refinery
 
       config.to_prepare do
         Refinery::Core.register_stylesheet 'wymeditor'
+        Refinery::Core.register_javascript 'refinery/wymeditor'
+        Refinery::Core.register_javascript "wymeditor/lang/#{::I18n.locale}"
+        Refinery::Core.register_javascript "wymeditor/skins/refinery/skin"
       end
     end
   end

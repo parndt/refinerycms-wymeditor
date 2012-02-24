@@ -17,7 +17,7 @@ WYMeditor.XhtmlValidator = {
       "script",
       "style",
       "title"
-      ].reject{|a| Refinery::Core.wymeditor_whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
+      ].reject{|a| Refinery::Wymeditor.whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
       "attributes":[
       "class",
       "id",
@@ -38,7 +38,7 @@ WYMeditor.XhtmlValidator = {
       "iframe",
       "param",
       "script"
-      ].reject{|a| Refinery::Core.wymeditor_whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
+      ].reject{|a| Refinery::Wymeditor.whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
       "attributes":
       {
         "dir":[
@@ -106,7 +106,7 @@ WYMeditor.XhtmlValidator = {
       "script",
       "style",
       "title"
-      ].reject{|a| Refinery::Core.wymeditor_whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
+      ].reject{|a| Refinery::Wymeditor.whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
       "attributes":[
       "onkeydown",
       "onkeypress",
@@ -126,7 +126,7 @@ WYMeditor.XhtmlValidator = {
       "script",
       "style",
       "title"
-      ].reject{|a| Refinery::Core.wymeditor_whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
+      ].reject{|a| Refinery::Wymeditor.whitelist_tags.keys.map(&:to_s).include?(a)}.inspect %>,
       "attributes":[
       "onclick",
       "ondblclick",
@@ -647,7 +647,7 @@ WYMeditor.XhtmlValidator = {
     "62":"rt",
     "63":"rp",
     "64":"summary",
-    "65":"command"<% Refinery::Core.wymeditor_whitelist_tags.each do |key, value| %>,
+    "65":"command"<% Refinery::Wymeditor.whitelist_tags.each do |key, value| %>,
     <%= key.inspect %>:<%= value.to_json %><% end %>
   },
 

@@ -33,5 +33,7 @@
  *= require wymeditor/classes
  *= require wymeditor/validators
  *= require_tree ../wymeditor/browsers
+ *= require wymeditor/init_interface
  *= require refinery/boot_wym
+ *= require_self
 */

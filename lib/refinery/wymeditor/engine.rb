@@ -7,12 +7,14 @@ module Refinery
       engine_name :refinery_wymeditor
 
       # set the manifests and assets to be precompiled
-      initializer "refinery.wymeditor.assets.precompile" do |app|
-        app.config.assets.precompile += [
-          "wymeditor/lang/*",
-          "wymeditor/skins/refinery/*",
-          "wymeditor/skins/refinery/**/*"
-        ]
+      config.to_prepare do
+        Rails.application.config.assets.precompile += %w(
+          wymeditor.css
+          theme.css
+          wymeditor/lang/*
+          wymeditor/skins/refinery/*
+          wymeditor/skins/refinery/**/*
+        )
       end
 
       config.after_initialize do
@@ -20,11 +22,13 @@ module Refinery
       end
 
       after_inclusion do
-        Refinery::Core.config.register_stylesheet 'wymeditor'
-        Refinery::Core.config.register_stylesheet 'wymeditor/skins/refinery/skin'
-        Refinery::Core.config.register_javascript 'refinery/wymeditor'
-        Refinery::Core.config.register_javascript "wymeditor/lang/#{::I18n.locale}"
-        Refinery::Core.config.register_javascript "wymeditor/skins/refinery/skin"
+        %w(wymeditor wymeditor/skins/refinery/skin).each do |stylesheet|
+          Refinery::Core.config.register_visual_editor_stylesheet stylesheet
+        end
+
+        %W(refinery/wymeditor wymeditor/lang/#{::I18n.locale} wymeditor/skins/refinery/skin).each do |javascript|
+          Refinery::Core.config.register_visual_editor_javascript javascript
+        end
       end
     end
   end

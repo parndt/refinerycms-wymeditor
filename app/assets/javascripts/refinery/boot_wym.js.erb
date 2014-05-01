@@ -259,7 +259,7 @@ WYMeditor.editor.prototype.loadIframe = function(iframe) {
 };
 
 WYMeditor.init = function() {
-  wymeditor_inputs = $('.wymeditor').filter(function(index) {
+  wymeditor_inputs = $('.wymeditor, .visual_editor').filter(function(index) {
     for (i=0; i < WYMeditor.INSTANCES.length; i++) {
       if (WYMeditor.INSTANCES[i]._element.attr('id') == $(this).attr('id')) {
         return false;

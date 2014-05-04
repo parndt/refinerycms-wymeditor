@@ -41,7 +41,7 @@
   padding: 5px 5px 0px 5px
 }
 
-/*auto-clear the wym_box*/
+/*auto-clear the visual_editor_box*/
 .wym_skin_refinery:after {
   content: ".";
   display: block;
@@ -394,38 +394,38 @@ background-image: image_url('wymeditor/skins/refinery/style.png');
 }
 
 /*DIALOGS*/
-.wym_dialog div.row {
+.visual_editor_dialog div.row {
   margin-bottom: 5px;
 }
-.wym_dialog div.row input {
+.visual_editor_dialog div.row input {
   margin-right: 5px;
 }
-.wym_dialog div.row label {
+.visual_editor_dialog div.row label {
   float: left;
   width: 150px;
   display: block;
   text-align: right;
   margin-right: 10px;
 }
-.wym_dialog div.row-indent {
+.visual_editor_dialog div.row-indent {
   padding-left: 160px;
 }
 /*autoclearing*/
-.wym_dialog div.row:after {
+.visual_editor_dialog div.row:after {
   content: ".";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.wym_dialog div.row {
+.visual_editor_dialog div.row {
   display: inline-block;
 }
 /* Hides from IE-mac \*/
-* html .wym_dialog div.row {
+* html .visual_editor_dialog div.row {
   height: 1%;
 }
-.wym_dialog div.row {
+.visual_editor_dialog div.row {
   display: block;
 }
 /* End hide from IE-mac */

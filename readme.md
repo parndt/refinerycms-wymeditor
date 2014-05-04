@@ -46,7 +46,7 @@ that we have some new styles it should load when the editor is loaded.
 Currently your ``admin.js`` file will have something like this
 
 ```js
-var custom_wymeditor_boot_options = {
+var custom_visual_editor_boot_options = {
 
 };
 ```
@@ -79,7 +79,7 @@ So going back to our text highlighting style above, we make the new style show
 up in the editor by changing our `admin.js` file to:
 
 ```js
-var custom_wymeditor_boot_options = {
+var custom_visual_editor_boot_options = {
   classesItems: [
     {name: 'text-align', rules:['left', 'center', 'right', 'justify'], join: '-'}
     , {name: 'image-align', rules:['left', 'right'], join: '-'}

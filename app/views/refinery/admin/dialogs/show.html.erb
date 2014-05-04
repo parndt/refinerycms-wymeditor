@@ -1,0 +1,19 @@
+<form id='visual_editor_dialog_form' class='visual_editor_dialog visual_editor_dialog_<%= @dialog_type %>'>
+  <input type='hidden' id='visual_editor_dialog_type' class='visual_editor_dialog_type' value='<%= @dialog_type %>' />
+  <iframe src='<%= @iframe_src %>' id='dialog_frame' frameborder='0' marginheight='0' marginwidth='0' border='0'></iframe>
+  <div class='wym_hideables'>
+  <% if @dialog_type == "image" %>
+    <input type='hidden' id='visual_editor_src' class='visual_editor_src' value='' />
+    <input type='hidden' id='visual_editor_alt' class='visual_editor_alt' value='' />
+    <input type='hidden' id='visual_editor_title' class='visual_editor_title' value='' />
+    <input type='hidden' id='visual_editor_size' class='visual_editor_size' value='' />
+  <% elsif @dialog_type == "link" %>
+    <input type='hidden' id='visual_editor_href' class='visual_editor_href' value='' />
+    <input type='hidden' id='visual_editor_title' class='visual_editor_title' value='' />
+    <input type='hidden' id='visual_editor_target' class='visual_editor_target' value='' />
+  <% end %>
+
+    <input id='visual_editor_dialog_submit' class='wym_submit submit_dialog button' type='button' value='<%= t('.save') %>' />
+    <a id='visual_editor_dialog_cancel' href='' class='wym_cancel close_dialog button'><%= t('.cancel') %></a>
+  </div>
+</form>

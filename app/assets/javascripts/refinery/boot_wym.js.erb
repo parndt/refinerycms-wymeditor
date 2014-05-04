@@ -19,8 +19,8 @@ onCloseDialog = function(dialog) {
 WYMeditor.onload_functions = [];
 var wymeditor_inputs = [];
 var wymeditors_loaded = 0;
-// supply custom_wymeditor_boot_options if you want to override anything here.
-if (typeof(custom_wymeditor_boot_options) == "undefined") { custom_wymeditor_boot_options = {}; }
+// supply custom_visual_editor_boot_options if you want to override anything here.
+if (typeof(custom_visual_editor_boot_options) == "undefined") { custom_visual_editor_boot_options = {}; }
 var form_actions =
 "<div id='dialog-form-actions' class='form-actions'>"
   + "<div class='form-actions-left'>"
@@ -31,10 +31,10 @@ var form_actions =
 var wymeditor_boot_options = $.extend({
   skin: 'refinery'
   , basePath: "/"
-  , wymPath: "<%= Rails.application.config.assets.prefix + 'refinery/wymeditor.js' %>"
-  , cssSkinPath: "<%= Rails.application.config.assets.prefix + 'wymeditor/skins/' %>"
-  , jsSkinPath: "<%= Rails.application.config.assets.prefix + 'wymeditor/skins/' %>"
-  , langPath: "<%= Rails.application.config.assets.prefix + 'wymeditor/lang/' %>"
+  , wymPath: "<%= Rails.application.config.assets.prefix + '/refinery/wymeditor.js' %>"
+  , cssSkinPath: "<%= Rails.application.config.assets.prefix + '/wymeditor/skins/' %>"
+  , jsSkinPath: "<%= Rails.application.config.assets.prefix + '/wymeditor/skins/' %>"
+  , langPath: "<%= Rails.application.config.assets.prefix + '/wymeditor/lang/' %>"
   , iframeBasePath: '/'
   , classesItems: [
     {name: 'text-align', rules:[{name: 'left', title: '{Left}'}, {name: 'center', title: '{Center}'}, {name: 'right', title: '{Right}'}, {name: 'justify', title: '{Justify}'}], join: '-', title: '{Text_Align}'}
@@ -99,7 +99,7 @@ var wymeditor_boot_options = $.extend({
       + "</li>"
 
   , boxHtml:
-  "<div class='wym_box'>"
+  "<div class='visual_editor_box'>"
     + "<div class='wym_area_top clearfix'>"
       + WYMeditor.CONTAINERS
       + WYMeditor.TOOLS
@@ -124,9 +124,9 @@ var wymeditor_boot_options = $.extend({
   , dialogLinkHtml: ""
 
   , dialogTableHtml:
-    "<div class='wym_dialog wym_dialog_table'>"
+    "<div class='visual_editor_dialog visual_editor_dialog_table'>"
       + "<form>"
-        + "<input type='hidden' id='wym_dialog_type' class='wym_dialog_type' value='"+ WYMeditor.DIALOG_TABLE + "' />"
+        + "<input type='hidden' id='visual_editor_dialog_type' class='visual_editor_dialog_type' value='"+ WYMeditor.DIALOG_TABLE + "' />"
         + "<div class='field'>"
           + "<label for='wym_caption'>{Caption}</label>"
           + "<input type='text' id='wym_caption' class='wym_caption' value='' size='40' />"
@@ -144,9 +144,9 @@ var wymeditor_boot_options = $.extend({
     + "</div>"
 
   , dialogPasteHtml:
-    "<div class='wym_dialog wym_dialog_paste'>"
+    "<div class='visual_editor_dialog visual_editor_dialog_paste'>"
       + "<form>"
-        + "<input type='hidden' id='wym_dialog_type' class='wym_dialog_type' value='" + WYMeditor.DIALOG_PASTE + "' />"
+        + "<input type='hidden' id='visual_editor_dialog_type' class='visual_editor_dialog_type' value='" + WYMeditor.DIALOG_PASTE + "' />"
         + "<div class='field'>"
           + "<textarea class='wym_text' rows='10' cols='50'></textarea>"
         + "</div>"
@@ -207,7 +207,7 @@ var wymeditor_boot_options = $.extend({
       }
     }
 
-    $(wym._iframe).contents().find('body').addClass('wym_iframe_body');
+    $(wym._iframe).contents().find('body').addClass('visual_editor_iframe_body');
 
     $('.field.hide-overflow').removeClass('hide-overflow').css('height', 'auto');
   }
@@ -221,7 +221,7 @@ var wymeditor_boot_options = $.extend({
     }
   }
   , lang: refinery.current_admin_locale
-}, custom_wymeditor_boot_options);
+}, custom_visual_editor_boot_options);
 
 WYMeditor.editor.prototype.loadIframe = function(iframe) {
   var wym = this;
@@ -247,9 +247,9 @@ WYMeditor.editor.prototype.loadIframe = function(iframe) {
     doc.close();
 
     var doc_head = doc.head || $(doc).find('head').get(0);
-    $("<link href='<%= Rails.application.config.assets.prefix + 'wymeditor/skins/refinery/wymiframe.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
-    $("<link href='<%= Rails.application.config.assets.prefix + 'refinery/formatting.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
-    $("<link href='<%= Rails.application.config.assets.prefix + 'refinery/theme.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
+    $("<link href='<%= Rails.application.config.assets.prefix + '/wymeditor/skins/refinery/wymiframe.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
+    $("<link href='<%= Rails.application.config.assets.prefix + '/refinery/formatting.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
+    $("<link href='<%= Rails.application.config.assets.prefix + '/refinery/theme.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
   }
   if ((id_of_editor = wym._element.parent().attr('id')) != null) {
     $(doc.body).addClass(id_of_editor);

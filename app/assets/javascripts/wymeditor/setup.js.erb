@@ -99,10 +99,10 @@ $.extend(WYMeditor, {
     BASE_PATH               : "{Wym_Base_Path}",
     CSS_PATH              : "{Wym_Css_Path}",
     WYM_PATH              : "{Wym_Wym_Path}",
-    SKINS_DEFAULT_PATH    : "<%= Rails.application.config.assets.prefix + 'wymeditor/skins/wymeditor_icon.png' %>",
+    SKINS_DEFAULT_PATH    : "<%= Rails.application.config.assets.prefix + '/wymeditor/skins/wymeditor_icon.png' %>",
     SKINS_DEFAULT_CSS      : "skin.css",
     SKINS_DEFAULT_JS      : "skin.js",
-    LANG_DEFAULT_PATH       : "<%= Rails.application.config.assets.prefix + 'wymeditor/lang/en.js' %>",
+    LANG_DEFAULT_PATH       : "<%= Rails.application.config.assets.prefix + '/wymeditor/lang/en.js' %>",
     IFRAME_BASE_PATH      : "{Wym_Iframe_Base_Path}",
     IFRAME_DEFAULT        : "iframe/default/",
     JQUERY_PATH             : "{Wym_Jquery_Path}",
@@ -125,8 +125,8 @@ $.extend(WYMeditor, {
     HTML                  : "{Wym_Html}",
     IFRAME                : "{Wym_Iframe}",
     STATUS                : "{Wym_Status}",
-    DIALOG_TITLE          : "{Wym_Dialog_Title}",
-    DIALOG_BODY             : "{Wym_Dialog_Body}",
+    DIALOG_TITLE          : "{Visual_Editor_Dialog_Title}",
+    DIALOG_BODY             : "{Visual_Editor_Dialog_Body}",
     STRING                : "string",
     BODY                  : "body",
     DIV                     : "div",
@@ -327,7 +327,7 @@ $.fn.wymeditor = function(options) {
 
     direction:  "ltr",
 
-    boxHtml: "<div class='wym_box'>"
+    boxHtml: "<div class='visual_editor_box'>"
               + "<div class='wym_area_top'>" + WYMeditor.TOOLS + "</div>"
               + "<div class='wym_area_left'></div>"
               + "<div class='wym_area_right'>" + WYMeditor.CONTAINERS + WYMeditor.CLASSES + "</div>"
@@ -424,7 +424,7 @@ $.fn.wymeditor = function(options) {
                         + "<textarea class='wym_html_val'></textarea>"
                       +"</div>",
 
-    boxSelector:       ".wym_box",
+    boxSelector:       ".visual_editor_box",
     toolsSelector:     ".wym_tools",
     toolsListSelector: " ul",
     containersSelector:".wym_containers",
@@ -440,13 +440,13 @@ $.fn.wymeditor = function(options) {
     classHiddenSelector: ".wym_classes_hidden",
     htmlValSelector:   ".wym_html_val",
 
-    hrefSelector:      ".wym_href",
-    srcSelector:       ".wym_src",
-    titleSelector:     ".wym_title",
-    targetSelector:    ".wym_target",
-    altSelector:       ".wym_alt",
+    hrefSelector:      ".visual_editor_href",
+    srcSelector:       ".visual_editor_src",
+    titleSelector:     ".visual_editor_title",
+    targetSelector:    ".visual_editor_target",
+    altSelector:       ".visual_editor_alt",
     textSelector:      ".wym_text",
-    sizeSelector:      ".wym_size",
+    sizeSelector:      ".visual_editor_size",
 
     rowsSelector:      ".wym_rows",
     colsSelector:      ".wym_cols",
@@ -457,12 +457,12 @@ $.fn.wymeditor = function(options) {
     cancelSelector:    ".wym_cancel",
     previewSelector:   "",
 
-    dialogTypeSelector:    ".wym_dialog_type",
-    dialogLinkSelector:    ".wym_dialog_link",
-    dialogImageSelector:   ".wym_dialog_image",
-    dialogTableSelector:   ".wym_dialog_table",
-    dialogPasteSelector:   ".wym_dialog_paste",
-    dialogPreviewSelector: ".wym_dialog_preview",
+    dialogTypeSelector:    ".visual_editor_dialog_type",
+    dialogLinkSelector:    ".visual_editor_dialog_link",
+    dialogImageSelector:   ".visual_editor_dialog_image",
+    dialogTableSelector:   ".visual_editor_dialog_table",
+    dialogPasteSelector:   ".visual_editor_dialog_paste",
+    dialogPreviewSelector: ".visual_editor_dialog_preview",
 
     updateSelector:    ".wymupdate",
     updateEvent:       "click",
@@ -486,20 +486,20 @@ $.fn.wymeditor = function(options) {
                     + WYMeditor.DIALOG_BODY
                   + "</html>",
 
-    dialogLinkHtml:  "<div class='wym_dialog wym_dialog_link'>"
+    dialogLinkHtml:  "<div class='visual_editor_dialog visual_editor_dialog_link'>"
                + "<form>"
                + "<fieldset>"
-               + "<input type='hidden' id='wym_dialog_type' class='wym_dialog_type' value='"
+               + "<input type='hidden' id='visual_editor_dialog_type' class='visual_editor_dialog_type' value='"
                + WYMeditor.DIALOG_LINK
                + "' />"
                + "<legend>{Link}</legend>"
                + "<div class='row'>"
                + "<label>{URL}</label>"
-               + "<input type='text' class='wym_href' value='' size='40' />"
+               + "<input type='text' class='visual_editor_href' value='' size='40' />"
                + "</div>"
                + "<div class='row'>"
                + "<label>{Title}</label>"
-               + "<input type='text' class='wym_title' value='' size='40' />"
+               + "<input type='text' class='visual_editor_title' value='' size='40' />"
                + "</div>"
                + "<div class='row row-indent'>"
                + "<input class='wym_submit button' type='button'"
@@ -511,24 +511,24 @@ $.fn.wymeditor = function(options) {
                + "</form>"
                + "</div>",
 
-    dialogImageHtml:  "<div class='wym_dialog wym_dialog_image'>"
+    dialogImageHtml:  "<div class='visual_editor_dialog visual_editor_dialog_image'>"
                + "<form>"
                + "<fieldset>"
-               + "<input type='hidden' id='wym_dialog_type' class='wym_dialog_type' value='"
+               + "<input type='hidden' id='visual_editor_dialog_type' class='visual_editor_dialog_type' value='"
                + WYMeditor.DIALOG_IMAGE
                + "' />"
                + "<legend>{Image}</legend>"
                + "<div class='row'>"
                + "<label>{URL}</label>"
-               + "<input type='text' class='wym_src' value='' size='40' />"
+               + "<input type='text' class='visual_editor_src' value='' size='40' />"
                + "</div>"
                + "<div class='row'>"
                + "<label>{Alternative_Text}</label>"
-               + "<input type='text' class='wym_alt' value='' size='40' />"
+               + "<input type='text' class='visual_editor_alt' value='' size='40' />"
                + "</div>"
                + "<div class='row'>"
                + "<label>{Title}</label>"
-               + "<input type='text' class='wym_title' value='' size='40' />"
+               + "<input type='text' class='visual_editor_title' value='' size='40' />"
                + "</div>"
                + "<div class='row row-indent'>"
                + "<input class='wym_submit button' type='button'"
@@ -540,9 +540,9 @@ $.fn.wymeditor = function(options) {
                + "</form>"
                + "</div>",
 
-    dialogTableHtml:  "<div class='wym_dialog wym_dialog_table'>"
+    dialogTableHtml:  "<div class='visual_editor_dialog visual_editor_dialog_table'>"
                + "<form>"
-               + "<input type='hidden' id='wym_dialog_type' class='wym_dialog_type' value='"
+               + "<input type='hidden' id='visual_editor_dialog_type' class='visual_editor_dialog_type' value='"
                + WYMeditor.DIALOG_TABLE
                + "' />"
                + "<div class='row'>"
@@ -570,9 +570,9 @@ $.fn.wymeditor = function(options) {
                + "</form>"
                + "</div>",
 
-    dialogPasteHtml:  "<div class='wym_dialog wym_dialog_paste'>"
+    dialogPasteHtml:  "<div class='visual_editor_dialog visual_editor_dialog_paste'>"
                + "<form>"
-               + "<input type='hidden' id='wym_dialog_type' class='wym_dialog_type' value='"
+               + "<input type='hidden' id='visual_editor_dialog_type' class='visual_editor_dialog_type' value='"
                + WYMeditor.DIALOG_PASTE
                + "' />"
                + "<fieldset>"
@@ -590,7 +590,7 @@ $.fn.wymeditor = function(options) {
                + "</form>"
                + "</div>",
 
-    dialogPreviewHtml: "<div class='wym_dialog wym_dialog_preview'></div>",
+    dialogPreviewHtml: "<div class='visual_editor_dialog visual_editor_dialog_preview'></div>",
 
     dialogStyles: [],
 

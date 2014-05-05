@@ -1,4 +1,5 @@
-WYMeditor.STRINGS['zh_tw'] = {
+WYMeditor.STRINGS['zh-TW'] = {
+  Apply_Style: '應用式樣',
 	Strong: '加粗',
 	Emphasis: '斜體',
 	Superscript: '上標',

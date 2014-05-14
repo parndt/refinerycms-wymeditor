@@ -1,21 +1,3 @@
-onOpenDialog = function(dialog) {
-  if ($('.ui-dialog').height() < $(window).height()) {
-    if(iframed()) {
-      $(parent.document.body).addClass('hide-overflow');
-    } else {
-      $(document.body).addClass('hide-overflow');
-    }
-  }
-};
-
-onCloseDialog = function(dialog) {
-  if(iframed()) {
-    $(parent.document.body).removeClass('hide-overflow');
-  } else {
-    $(document.body).removeClass('hide-overflow');
-  }
-};
-
 WYMeditor.onload_functions = [];
 var wymeditor_inputs = [];
 var wymeditors_loaded = 0;

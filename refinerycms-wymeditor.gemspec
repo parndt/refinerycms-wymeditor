@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.test_files        = `git ls-files -- spec/*`.split("\n")
   s.executables       = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
 
-  s.add_dependency 'refinerycms-core', '>= 3.0.0.dev'
+  s.add_dependency 'refinerycms-core', '~> 3.0', '>= 3.0.0'
 end

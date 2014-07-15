@@ -40,6 +40,6 @@ this.visual_editor_update = (function(_this) {
 
 this.visual_editor_init = (function(_this) {
   return function() {
-    return WYMEditor.init();
+    return WYMeditor.init();
   };
 })(this);

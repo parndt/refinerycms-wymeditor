@@ -262,6 +262,6 @@ WYMeditor.init = function() {
   wymeditor_inputs.wymeditor(wymeditor_boot_options);
 };
 
-$(function(){
+$(document).on('ready page:load', function(){
   WYMeditor.init();
 });

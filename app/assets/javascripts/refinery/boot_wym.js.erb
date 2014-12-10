@@ -214,20 +214,6 @@ WYMeditor.editor.prototype.loadIframe = function(iframe) {
     doc = doc.document;
   }
   if (!$.browser.msie) {
-    doc.open('text/html', 'replace');
-    html = "<!DOCTYPE html>\
-    <html>\
-      <head>\
-        <title>WYMeditor</title>\
-        <meta charset='" + $('meta[charset]').attr('charset') + "' />\
-        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />\
-      </head>\
-      <body class='wym_iframe'>\
-      </body>\
-    </html>";
-    doc.write(html);
-    doc.close();
-
     var doc_head = doc.head || $(doc).find('head').get(0);
     $("<link href='<%= Rails.application.config.assets.prefix + '/wymeditor/skins/refinery/wymiframe.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
     $("<link href='<%= Rails.application.config.assets.prefix + '/refinery/formatting.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);

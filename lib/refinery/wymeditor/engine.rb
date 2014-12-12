@@ -17,6 +17,15 @@ module Refinery
         )
       end
 
+      before_inclusion do
+        Refinery::Plugin.register do |plugin|
+          plugin.pathname = root
+          plugin.name = "refinerycms_wymeditor"
+          plugin.hide_from_menu = true
+          plugin.menu_match = %r{refinery/wymeditor}
+        end
+      end
+
       config.after_initialize do
         Refinery.register_engine Refinery::Wymeditor
       end

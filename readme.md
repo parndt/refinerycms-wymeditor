@@ -1,4 +1,4 @@
-# WYMeditor (the visual editor)
+# WYMeditor (the visual editor) [![Build Status](https://travis-ci.org/parndt/refinerycms-wymeditor.svg?branch=master)](https://travis-ci.org/parndt/refinerycms-wymeditor)
 
 Refinery is backed by [WYMeditor](http://www.wymeditor.org/)
 

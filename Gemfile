@@ -12,3 +12,7 @@ gem "refinerycms-i18n", git: "https://github.com/refinery/refinerycms-i18n",
 
 gem 'sqlite3'
 gem 'pry'
+
+group :development, :test do
+  gem 'selenium-webdriver', '~> 2.43'
+end

@@ -16,5 +16,4 @@ Gem::Specification.new do |s|
   s.executables       = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
 
   s.add_dependency              'refinerycms-core',     '~> 3.0', '>= 3.0.0'
-  s.add_development_dependency  'selenium-webdriver',   '~> 2.43'
 end

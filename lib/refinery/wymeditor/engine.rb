@@ -38,6 +38,8 @@ module Refinery
         %W(refinery/wymeditor wymeditor/lang/#{::I18n.locale} wymeditor/skins/refinery/skin).each do |javascript|
           Refinery::Core.config.register_visual_editor_javascript javascript
         end
+
+        Refinery::Pages.config.friendly_id_reserved_words << 'wymiframe'
       end
     end
   end

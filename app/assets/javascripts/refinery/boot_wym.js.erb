@@ -96,7 +96,7 @@ var wymeditor_boot_options = $.extend({
 
   , iframeHtml:
     "<div class='wym_iframe wym_section'>"
-     + "<iframe id='WYMeditor_" + WYMeditor.INDEX + "'" + ($.browser.msie ? " src='" + WYMeditor.IFRAME_BASE_PATH + "wymiframe'" : "")
+     + "<iframe id='WYMeditor_" + WYMeditor.INDEX + "' src='" + WYMeditor.IFRAME_BASE_PATH + "wymiframe'"
      + " frameborder='0' marginheight='0' marginwidth='0' border='0'"
      + " onload='this.contentWindow.parent.WYMeditor.INSTANCES[" + WYMeditor.INDEX + "].loadIframe(this);'></iframe>"
     +"</div>"
@@ -212,12 +212,6 @@ WYMeditor.editor.prototype.loadIframe = function(iframe) {
   var doc = (iframe.contentDocument || iframe.contentWindow);
   if(doc.document) {
     doc = doc.document;
-  }
-  if (!$.browser.msie) {
-    var doc_head = doc.head || $(doc).find('head').get(0);
-    $("<link href='<%= Rails.application.config.assets.prefix + '/wymeditor/skins/refinery/wymiframe.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
-    $("<link href='<%= Rails.application.config.assets.prefix + '/refinery/formatting.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
-    $("<link href='<%= Rails.application.config.assets.prefix + '/refinery/theme.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
   }
   if ((id_of_editor = wym._element.parent().attr('id')) != null) {
     $(doc.body).addClass(id_of_editor);

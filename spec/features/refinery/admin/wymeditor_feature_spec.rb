@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'wymeditor', :type => :feature do
-  refinery_login_with :refinery_user
+  refinery_login
   # see https://github.com/refinery/refinerycms/pull/1583
   context "when switching locales" do
     before do
@@ -22,12 +22,12 @@ describe 'wymeditor', :type => :feature do
       page = Refinery::Page.last
       # we need page parts so that there's a visual editor
       Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
-        page.parts.create(:title => default_page_part, :body => nil, :position => index)
+        page.parts.create(title: default_page_part[:title], slug: default_page_part[:slug], :body => nil, :position => index)
       end
       page
     end
 
-    specify "dialog has correct links", :js do
+    specify "dialog has correct links", js: true do
       visit refinery.edit_admin_page_path(about_page)
 
       find("#page_part_body .wym_tools_link a").click

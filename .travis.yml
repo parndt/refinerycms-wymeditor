@@ -2,8 +2,9 @@ language: ruby
 cache: bundler
 bundler_args: --without development
 before_script:
-  - "sh -e /etc/init.d/xvfb start"
-  - "bin/rake refinery:testing:dummy_app"
+  - sh -e /etc/init.d/xvfb start
+  - bin/rake refinery:testing:dummy_app
+  - export DISPLAY=:99.0
 env:
   - DB=postgresql
   - DB=mysql

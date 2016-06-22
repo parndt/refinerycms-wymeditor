@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version           = '1.0.7'
   s.summary           = %q{WYMeditor support for Refinery CMS}
   s.description       = %q{This extension adds WYMeditor support to Refinery CMS for visual editing.}
-  s.email             = %q{info@refinerycms.com}
+  s.email             = %q{gems@p.arndt.io}
   s.homepage          = %q{http://refinerycms.com}
   s.authors           = ['Philip Arndt']
   s.license           = %q{MIT}
@@ -15,4 +15,9 @@ Gem::Specification.new do |s|
   s.test_files        = `git ls-files -- spec/*`.split("\n")
 
   s.add_dependency    'refinerycms-core', ['>= 3.0.0', '< 5.0']
+
+  s.cert_chain  = ['certs/parndt.pem']
+  if $0 =~ /gem\z/ && ARGV.include?("build") && ARGV.include?(__FILE__)
+    s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem")
+  end
 end

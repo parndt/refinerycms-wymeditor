@@ -1,6 +1,8 @@
-# WYMeditor (the visual editor) [![Build Status](https://travis-ci.org/parndt/refinerycms-wymeditor.svg?branch=master)](https://travis-ci.org/parndt/refinerycms-wymeditor)
+# Refinery CMS WYMeditor (the visual editor)
 
-Refinery is backed by [WYMeditor](http://www.wymeditor.org/)
+[![Build Status](https://travis-ci.org/parndt/refinerycms-wymeditor.svg?branch=master)](https://travis-ci.org/parndt/refinerycms-wymeditor)
+
+Refinery CMS is backed by [WYMeditor](http://www.wymeditor.org/)
 
 It's a standards compliant editor that we've trimmed to only have what we feel
 is absolutely necessary. When you're editing the content in a page part you're
@@ -11,9 +13,23 @@ features like our custom dialogues however it is all based on the release: WYMed
 
 You can also switch to "source" view and edit HTML manually if the visual editor is not playing nice.
 
-## Custom Selectable Styles in WYMeditor
 
-![Refinery Page Editor Styles](http://refinerycms.com/system/images/0000/0596/editing-page-style.png)
+## Installation
+
+Simply put this in the Gemfile of your Refinery application:
+
+```ruby
+gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.7']
+```
+
+Now, run `bundle install`
+
+Next, to install the WYMeditor extension run:
+
+    rails generate refinery:wymeditor
+
+
+## Custom Selectable Styles in WYMeditor
 
 Some sites require a little more than just your standard bold and heading controls.
 This is where the "css" style drop down comes in handy.
@@ -90,8 +106,6 @@ var custom_visual_editor_boot_options = {
 ```
 
 ## Dialogs that show from WYMeditor
-
-![Refinery Page Editor Link Dialog](http://refinerycms.com/system/images/0000/0636/link-dialog.png)
 
 ### Page Link dialog
 

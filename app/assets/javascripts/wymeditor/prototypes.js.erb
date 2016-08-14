@@ -268,12 +268,14 @@ WYMeditor.editor.prototype.html = function(html) {
  * @description Catch the browser paste action and open the appropriate dialog instead
  */
 WYMeditor.editor.prototype.intercept_paste = function(e) {
+<% if Refinery::Wymeditor.config.intercept_paste %>
   var wym = WYMeditor.INSTANCES[this.title];
   wym.format_block();
   wym.exec(WYMeditor.PASTE);
   if (e) {
     e.preventDefault();
   }
+<% end %>
 };
 
 /* @name xhtml

@@ -13,7 +13,7 @@ end
 group :test do
   gem 'pry'
   gem 'launchy'
-  gem 'selenium-webdriver', '~> 2.43'
+  gem 'selenium-webdriver', '~> 3.0.0.beta2.1'
 end
 
 ###########################

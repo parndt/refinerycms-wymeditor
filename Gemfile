@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-git "https://github.com/refinery/refinerycms", branch: "master" do
+git "https://github.com/refinery/refinerycms", branch: "feature/rails-5" do
   gem 'refinerycms'
 
   group :development, :test do
@@ -15,6 +15,20 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver', '~> 2.43'
 end
+
+###########################
+# Rails 5 temp. gem sources
+
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'feature/rails-5'
+gem 'globalize', github: 'globalize/globalize', branch: 'master'
+gem 'will_paginate', github: 'nmeylan/will_paginate', branch: 'master'
+
+group :development do
+  gem 'listen', '~> 3.0'
+end
+
+#
+###########################
 
 # Database Configuration
 unless ENV['TRAVIS']

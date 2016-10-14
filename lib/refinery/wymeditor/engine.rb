@@ -1,10 +1,21 @@
 module Refinery
   module Wymeditor
     class Engine < ::Rails::Engine
-      include Refinery::Engine
+      extend Refinery::Engine
 
       isolate_namespace Refinery
       engine_name :refinery_wymeditor
+
+      # Work around Sprockets not finding our assets
+      initializer "add asset paths" do |app|
+        asset_path = File.expand_path("../../../../app/assets", __FILE__).freeze
+        %w(images javascripts stylesheets).each do |asset_type|
+          asset_directory = File.join(asset_path, asset_type).freeze
+          if app.assets.paths.exclude?(asset_directory)
+            app.assets.prepend_path asset_directory
+          end
+        end
+      end
 
       # set the manifests and assets to be precompiled
       config.to_prepare do

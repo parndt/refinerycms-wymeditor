@@ -1,7 +1,7 @@
 module Refinery
   module Wymeditor
     class Engine < ::Rails::Engine
-      include Refinery::Engine
+      extend Refinery::Engine
 
       isolate_namespace Refinery
       engine_name :refinery_wymeditor

@@ -14,6 +14,7 @@ module Refinery
           wymeditor/lang/*
           wymeditor/skins/refinery/*
           wymeditor/skins/refinery/**/*
+          refinery/wymeditor.js
         )
       end
 

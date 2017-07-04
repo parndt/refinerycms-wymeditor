@@ -16,20 +16,6 @@ group :test do
   gem 'selenium-webdriver', '~> 3.0.0.beta2.1'
 end
 
-###########################
-# Rails 5 temp. gem sources
-
-gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'feature/rails-5'
-gem 'globalize', github: 'globalize/globalize', branch: 'master'
-gem 'will_paginate', github: 'nmeylan/will_paginate', branch: 'master'
-
-group :development do
-  gem 'listen', '~> 3.0'
-end
-
-#
-###########################
-
 # Database Configuration
 unless ENV['TRAVIS']
   gem 'activerecord-jdbcsqlite3-adapter', :platform => :jruby

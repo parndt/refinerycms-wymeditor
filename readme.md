@@ -19,7 +19,7 @@ You can also switch to "source" view and edit HTML manually if the visual editor
 Simply put this in the Gemfile of your Refinery application:
 
 ```ruby
-gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.7']
+gem 'refinerycms-wymeditor', ['~> 2.0', '>= 2.0.0']
 ```
 
 Now, run `bundle install`

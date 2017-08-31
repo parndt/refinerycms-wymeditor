@@ -1,6 +1,11 @@
 language: ruby
+dist: trusty
 cache: bundler
 bundler_args: --without development
+addons:
+  apt:
+    packages:
+      - google-chrome-stable
 before_script:
   - sh -e /etc/init.d/xvfb start
   - bin/rake refinery:testing:dummy_app
@@ -12,8 +17,7 @@ notifications:
   webhooks:
     - https://webhooks.gitter.im/e/b5d48907cdc89864b874
 rvm:
-  - 2.3.1
-  - 2.2
-  - 2.1
-  - 2.0.0
+  - 2.4.1
+  - 2.3.3
+  - 2.2.6
 sudo: false

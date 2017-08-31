@@ -13,7 +13,9 @@ end
 group :test do
   gem 'pry'
   gem 'launchy'
-  gem 'selenium-webdriver', '~> 2.43'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'listen'
 end
 
 # Database Configuration

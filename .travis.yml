@@ -1,6 +1,11 @@
 language: ruby
+dist: trusty
 cache: bundler
 bundler_args: --without development
+addons:
+  apt:
+    packages:
+      - google-chrome-stable
 before_script:
   - sh -e /etc/init.d/xvfb start
   - bin/rake refinery:testing:dummy_app

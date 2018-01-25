@@ -42,6 +42,8 @@ WYMeditor.STRINGS['zh-CN'] = {
 	Status: '状态',
 	Source_Code: '源代码',
 	Attachment: '附件',
-	NewParagraph: '新段落'
+	NewParagraph: '新段落',
+	Apply_Style: '应用样式',
+	Insert: '插入'
 };
 

@@ -556,7 +556,7 @@ WYMeditor.editor.prototype.replaceStrings = function(sVal) {
   var wym = this;
   if(!WYMeditor.STRINGS[wym._options.lang]) {
     try {
-      eval($.ajax({url:wym._options.langPath + wym._options.lang + '.js', async:false}).responseText);
+      eval($.ajax({url:"<%= asset_path("wymeditor/lang/#{I18n.locale}") %>", async:false}).responseText);
     } catch(e) {
       if (WYMeditor.console) {
         WYMeditor.console.error("WYMeditor: error while parsing language file.");

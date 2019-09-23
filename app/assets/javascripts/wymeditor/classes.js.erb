@@ -1177,7 +1177,9 @@ WYMeditor.XhtmlSaxListener.prototype.joinRepeatedEntities = function(xhtml)
 
 WYMeditor.XhtmlSaxListener.prototype.removeEmptyTags = function(xhtml)
 {
-  return xhtml.replace(new RegExp('<('+this.block_tags.join("|").replace(/\|td/,'').replace(/\|th/, '')+')>(<br \/>|&#160;|&nbsp;|\\s)*<\/\\1>' ,'g'),'');
+  var tags = this.block_tags.join("|").replace(/\|td/,'').replace(/\|th/, '');
+  var emptyTags = '<(' + tags + ')>(<br \/>|&#160;|&nbsp;|\\s)*<\/\\1>';
+  return xhtml.replace(new RegExp(emptyTags ,'g'),'').trim();
 };
 
 WYMeditor.XhtmlSaxListener.prototype.removeBrInPre = function(xhtml)

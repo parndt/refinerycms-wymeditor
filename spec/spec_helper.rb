@@ -27,7 +27,8 @@ Capybara.javascript_driver = :chrome
 
 Capybara.configure do |config|
   config.default_max_wait_time = ENV['CAPYBARA_MAX_WAIT_TIME'] || 10 # seconds
-  config.default_driver        = :selenium
+  config.default_driver = :selenium
+  config.server = :webrick
 end
 
 # Requires supporting files with custom matchers and macros, etc,

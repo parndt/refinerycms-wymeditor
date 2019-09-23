@@ -8,11 +8,11 @@ describe 'wymeditor', :type => :feature do
       allow(Refinery::I18n).to receive(:frontend_locales).and_return [:en, :ru]
 
       # Create a page in both locales
-      about_page = Globalize.with_locale(:en) do
+      about_page = Mobility.with_locale(:en) do
         Refinery::Page.create :title => 'About'
       end
 
-      Globalize.with_locale(:ru) do
+      Mobility.with_locale(:ru) do
         about_page.title = 'About Ru'
         about_page.save
       end

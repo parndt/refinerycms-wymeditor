@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.files             = `git ls-files -- '*[^.pem]'`.split("\n")
   s.test_files        = `git ls-files -- spec/*`.split("\n")
 
-  s.add_dependency    'refinerycms-core', ['>= 4.0.0.dev', '< 5.0']
+  s.add_dependency    'refinerycms-core', ['>= 4.0.0', '< 5.0']
 
   s.cert_chain = ['certs/parndt.pem']
   if $PROGRAM_NAME =~ /gem\z/ && ARGV.include?('build') && ARGV.include?(__FILE__)

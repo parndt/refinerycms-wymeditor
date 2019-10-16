@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = 'refinerycms-wymeditor'
-  s.version           = '2.1.0'
+  s.version           = '2.2.0'
   s.summary           = 'WYMeditor support for Refinery CMS'
   s.description       = 'This extension adds WYMeditor support to Refinery CMS for visual editing.'
   s.email             = 'gems@p.arndt.io'

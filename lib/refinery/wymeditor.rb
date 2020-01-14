@@ -1,3 +1,5 @@
+require 'refinery/core'
+
 module Refinery
   module Wymeditor
     class << self

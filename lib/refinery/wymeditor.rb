@@ -1,3 +1,6 @@
+require 'refinery/wymeditor/engine'
+require 'refinery/wymeditor/configuration'
+
 module Refinery
   module Wymeditor
     class << self
@@ -5,8 +8,5 @@ module Refinery
         @root ||= Pathname.new(File.expand_path('../../../', __FILE__))
       end
     end
-
-    require 'refinery/wymeditor/engine'
-    require 'refinery/wymeditor/configuration'
   end
 end

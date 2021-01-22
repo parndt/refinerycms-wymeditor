@@ -29,7 +29,7 @@ module Refinery
           Refinery::Core.config.register_visual_editor_stylesheet stylesheet
         end
 
-        %W(refinery/wymeditor wymeditor/lang/#{::I18n.locale} wymeditor/skins/refinery/skin).each do |javascript|
+        %w(refinery/wymeditor wymeditor/skins/refinery/skin).each do |javascript|
           Refinery::Core.config.register_visual_editor_javascript javascript
         end
 

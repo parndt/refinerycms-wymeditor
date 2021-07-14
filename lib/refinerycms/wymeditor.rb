@@ -1,2 +1,2 @@
-require 'refinerycms/core'
+require 'refinerycms-core'
 require 'refinery/wymeditor'

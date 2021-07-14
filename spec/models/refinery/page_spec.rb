@@ -5,7 +5,7 @@ module Refinery
 
     subject { Page.create title: "wymiframe" }
     it "treats wymiframe as a reserved word" do
-      expect(subject.url[:path]).to eq(["wymiframe-page"])
+      expect(subject.url[:path]).to be_any {|f| f.start_with?("wymiframe-page")}
     end
 
   end

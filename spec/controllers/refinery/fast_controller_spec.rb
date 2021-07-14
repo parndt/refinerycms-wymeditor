@@ -5,7 +5,7 @@ module Refinery
     it "should render the wymiframe template" do
       get :wymiframe
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response).to render_template(:wymiframe)
     end
   end

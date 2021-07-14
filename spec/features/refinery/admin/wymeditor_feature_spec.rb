@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'wymeditor', :type => :feature do
+describe 'wymeditor', type: :system do
   refinery_login
   # see https://github.com/refinery/refinerycms/pull/1583
   context "when switching locales" do
@@ -27,7 +27,7 @@ describe 'wymeditor', :type => :feature do
       page
     end
 
-    specify "dialog has correct links", js: true do
+    specify "dialog has correct links", :js do
       visit refinery.edit_admin_page_path(about_page)
 
       find("#page_part_body .wym_tools_link a").click

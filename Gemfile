@@ -19,6 +19,7 @@ group :test do
   gem 'listen'
   gem 'pry'
   gem 'puma'
+  gem 'rspec-retry'
   gem 'selenium-webdriver'
 end
 

@@ -10,27 +10,31 @@ git "https://github.com/refinery/refinerycms", branch: "master" do
   end
 end
 
+# routing-filter needs a newer release than version 0.6.3
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
+gem 'routing-filter', github: 'svenfuchs/routing-filter', branch: 'master'
+
 group :test do
-  gem 'pry'
   gem 'launchy'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
   gem 'listen'
+  gem 'pry'
+  gem 'puma'
+  gem 'selenium-webdriver'
 end
 
 # Database Configuration
-unless ENV['TRAVIS']
+unless ENV['CI']
   gem 'activerecord-jdbcsqlite3-adapter', :platform => :jruby
   gem 'sqlite3', :platform => :ruby
 end
 
-if !ENV['TRAVIS'] || ENV['DB'] == 'mysql'
+if !ENV['CI'] || ENV['DB'] == 'mysql'
   gem 'activerecord-jdbcmysql-adapter', :platform => :jruby
   gem 'jdbc-mysql', '= 5.1.13', :platform => :jruby
   gem 'mysql2', :platform => :ruby
 end
 
-if !ENV['TRAVIS'] || ENV['DB'] == 'postgresql'
+if !ENV['CI'] || ENV['DB'] == 'postgresql'
   gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby
   gem 'pg', :platform => :ruby
 end

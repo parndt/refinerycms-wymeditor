@@ -1,4 +1,6 @@
 module AssetHelper
+  module_function
+
   def asset_exists?(path)
     if Rails.configuration.assets.compile
       Rails.application.precompiled_assets.include? path

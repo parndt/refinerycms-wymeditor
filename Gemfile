@@ -10,9 +10,7 @@ git "https://github.com/refinery/refinerycms", branch: "master" do
   end
 end
 
-# routing-filter needs a newer release than version 0.6.3
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
-gem 'routing-filter', github: 'svenfuchs/routing-filter', branch: 'master'
 
 group :test do
   gem 'launchy'
@@ -47,6 +45,6 @@ group :assets do
 end
 
 # Load local gems according to Refinery developer preference.
-if File.exist? local_gemfile = File.expand_path('../.gemfile', __FILE__)
+if File.exist?(local_gemfile = File.expand_path('../.gemfile', __FILE__))
   eval File.read(local_gemfile)
 end

@@ -29,7 +29,7 @@ jobs:
     name: rspec ${{ matrix.ruby }} ${{ matrix.database }}
     steps:
       - run: sudo apt-get update && sudo apt-get install libsqlite3-dev -y
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true

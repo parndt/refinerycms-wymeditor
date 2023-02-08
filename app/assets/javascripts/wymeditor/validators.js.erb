@@ -652,7 +652,8 @@ WYMeditor.XhtmlValidator = {
     "63":"rp",
     "64":"summary",
     "65":"picture",
-    "66":"command"<% Refinery::Wymeditor.whitelist_tags.each do |key, value| %>,
+    "66":"turbo-frame",
+    "67":"command"<% Refinery::Wymeditor.whitelist_tags.each do |key, value| %>,
     <%= key.inspect %>:<%= value.to_json %><% end %>
   },
 
